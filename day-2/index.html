@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>
+        day-2
+    </title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div>
+        <span id="error"></span>
+    </div>
+    <div class="container">
+        <p class="heading">Employee Form</p>
+        <form>
+            <table class="form_table border-element">
+                <tr>
+                    <td class="form_label border-element">
+                        First Name
+                    </td>
+                    <td class="form_element border-element">
+                        <input type="text" autofocus="true" id="fist_name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form_label border-element">
+                        Last Name
+                    </td>
+                    <td class="form_element border-element">
+                        <input type="text" id="last_name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form_label border-element">
+                        Gender
+                    </td>
+                    <td class="form_element border-element">
+                        <input type="radio" id="gender" checked/>
+                        <label>Male</label>
+                        <input type="radio" id="gender" />
+                        <label>Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form_label border-element">
+                        Maratial Status
+                    </td>
+                    <td class="form_element border-element">
+                        <select id="maratial_status" onchange="checkstatus()">
+                            <option value="married">
+                                Married
+                            </option>
+                            <option value="unmarried">
+                                Unmarried
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form_label border-element">
+                        Spouse Name
+                    </td>
+                    <td class="form_element border-element">
+                        <input type="text" id="name_spous"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="form_label border-element">
+                        Other Details
+                    </td>
+                    <td class="form_element border-element">
+                        <textarea rows="3">
+                            
+                        </textarea>
+                    </td>
+                </tr>
+            </table>
+            <div class="btns-div">
+                <span class="btns-col">
+                    <button class="form-btn" id="save_btn" onclick="save_validate()">Save</button>
+                </span>
+                <span class="btns-col">
+                    <button class="form-btn" id="reset_btn">Reset</button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
