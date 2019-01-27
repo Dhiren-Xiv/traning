@@ -1,0 +1,156 @@
+body{
+    padding:0px;
+    margin: 0px;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}
+/* main heading */
+.main_heading_green {
+    background: #8DD007;
+    color: #fff;
+}
+.main_heading {
+    display: inline-block;
+    width: 100%;
+    /* border: 1px solid; */
+    font-size: 29px;
+    margin-top: 20px;
+}
+.green_heading {
+    min-height: 110px;
+}
+.blue_bg_heading {
+    background: #00A8E9;
+    min-height: 220px;
+}
+/* main body */
+.main_conatiner {
+    background: #EDEDED;
+    margin-top: -249px;
+    border-radius: 5px;
+    padding-top: 22px;
+    /* display: inline-block; */
+    min-height: 740px;
+    margin-left: 15%;
+    box-shadow: 3px 8px 2px #e1e1e1;
+}
+
+/* navigation */
+.navigation {
+    width: 92%;
+    margin: auto;
+}
+.navigation > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #F9F6FC;
+    border-radius: 6px;
+}
+  
+.navigation > ul >li {
+    float: left;
+}
+  
+.navigation > ul >li > a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+.navigation > ul > li > a:hover {
+    background-color: #8DD007;
+    color: #fff
+}
+/* body section */
+.main_body{
+    margin: 10px auto;
+    display: inline-block;
+}
+/* side bar */
+.side_container{
+    width: 90%;
+    margin: auto;
+}
+.sidebar {
+    width: 30%;
+    float: right;
+    display: inline-block;
+    color: #fff;
+    background: #212121;
+}
+.search_heading {
+    display: inline-block;
+    width: 100%;
+    margin: 20px auto;
+    font-size: 21px;
+}
+.search_btn {
+    background: #000;
+    border: #000;
+    color: #fff;
+    padding: 5px;
+}
+.top_content_heading {
+    font-size: 20px;
+}
+
+.top_context >ul {
+    list-style-type: none;
+    padding: 0px;
+}
+.top_context >ul > li{
+    border-bottom: 1px solid #000;
+    padding: 10px 0px 0px 0px;
+}
+.top_context >ul > li >a {
+    text-decoration: none;
+    color:#fff;
+}
+/* main context */
+.main_context {
+    width: 70%;
+    float: left;
+}
+.main_content_box {
+    padding-bottom: 35px;
+}
+.context_box_heading {
+    margin: 15px auto;
+}
+.main_content-heading {
+    font-size: 20px;
+    background: #a5c00a;
+    color: #fff;
+    padding: 5px;
+}
+.main_left_heading {
+    float: right;
+}
+.comment_section > a{
+    
+    text-decoration: none;
+    color:#00A8E9;
+    float:right;
+
+}
+
+.footer {
+    background: #fff;
+    padding: 10px;
+    margin: 10px auto;
+}
+.footer_center {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+.footer_spaced {
+    padding-left: 25px;
+}
