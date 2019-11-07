@@ -40,7 +40,7 @@ var validateEmplyoee = () => {
     // this is to check the spouse name errors.
     let spouseNameErrors = validateSpouseName("");
     if (spouseNameErrors) {
-        errorMessages = [...errorMessages, otherDetailsErrors];
+        errorMessages = [...errorMessages, spouseNameErrors];
         (!focusField) ? focusField = "txtNameOfSpouse" : focusField;
     }
     // this is to check for Other Details.
@@ -95,5 +95,5 @@ let fieldRequired = (id) => {
 };
 let validateSpouseName = () => {
     let enableSpouseName = $("#txtNameOfSpouse").attr('disabled');
-    return (!enableSpouseName) ? fieldRequired(validateSpouseName) : false;
+    return (!enableSpouseName) ? fieldRequired('txtNameOfSpouse') : false;
 }
