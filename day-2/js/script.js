@@ -76,8 +76,12 @@ let validateName = (id) => {
     let fieldName = $(`#${id}`).data('name');
     let fieldErrors = [];
     let error = fieldRequired(id);
+    var expr = new RegExp(/^[A-Z][A-Z,a-z]+/);
     if (error) fieldErrors.push(error);
-    if (fieldErrors) {
+    if (fieldErrors.length == 0) {
+        if (!expr.test(fieldVal)) {
+            fieldErrors.push(`${fieldName} must have first charater Capital`);
+        }
         if (fieldVal.legth >= 10) {
             fieldErrors.push(`${fieldName} must have 10 or less charater`);
         }
