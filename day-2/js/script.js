@@ -9,6 +9,7 @@ $(document).ready(function () {
             alert(data.data.msg);
         }
     });
+    
     $("input[name='maratialStatus']").click((event) => {
         let value = $(event.currentTarget).val();
         if (value === "unmarried") {
@@ -18,8 +19,65 @@ $(document).ready(function () {
 
         }
     });
+    
+    $(".showEmployeeTable").click((event) => {
+        event.preventDefault();
+        if(employeeList.length !== 0){
+            $(".employeeTable").removeClass('d-none');
+            let tableBody = "";
+            employeeList.forEach(employee => {
+                tableBody += "<tr class='text-center'>";
+                tableBody += `<td>${employee.firstName}</td>
+                            <td>${employee.lastName}</td>
+                            <td>${employee.gender}</td>
+                            <td>${employee.maratialStatus}</td>
+                            <td>${employee.nameOfSpouse}</td>
+                            <td>${employee.otherDetails}</td>
+                            <td>
+                                <button class="btn editEmployee" data-id=${employee.id}>
+                                    <i class="fa fa-edit"></i>
+                                </button> 
+                                <button class="btn removeEmployee" data-id=${employee.id}>
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </td>`;
+                tableBody += "</tr>";
+
+            });
+            $(".employeeTableBody").html(tableBody);
+        } else {
+            $(".employeeTable").addClass('d-none');
+        }
+
+    });
+
+    if(employeeList.length === 0){
+        $(".employeeTable").addClass('d-none');
+    }else {
+        $(".showEmployeeTable").click();
+    }
+
 });
 
+$(document).on('click', '.removeEmployee', event => {
+    event.preventDefault();
+    let id = parseInt($(event.currentTarget).data('id'));
+    employeeList.splice(id,1);
+    $(".showEmployeeTable").click();
+});
+
+$(document).on('click', '.editEmployee', event => {
+    event.preventDefault();
+    let id = parseInt($(event.currentTarget).data('id'));
+    let employee = employeeList[id];
+    $("#employeeId").val(employee.id);
+    $("#txtFirstName").val(employee.firstName);
+    $("#txtLastName").val(employee.lastName);
+    (employee.gender === 'male') ? $("#txtMale").attr("checked", "checked") : $("#txtFemale").attr("checked", "checked")
+    (employee.maratialStatus === 'unmarried') ? $("#txtMarried").attr("checked", "checked") : $("#txtUnmarried").attr("checked", "checked")
+    $("#txtNameOfSpouse").val(employee.nameOfSpouse);
+    $("#txtOtherDetails").val(employee.otherDetails);
+});
 var validateEmplyoee = () => {
     let errorMessages = [];
     let focusField = '';
@@ -61,12 +119,31 @@ var validateEmplyoee = () => {
             }
         }
     } else {
-        result = {
-            status: 'success',
-            data: {
-                msg: 'Thank you!'
+        let employeeId = $("#employeeId").val();
+        let data = {
+            id: (employeeId) ? employeeId : employeeList.length,
+            firstName: $("#txtFirstName").val(),
+            lastName: $("#txtLastName").val(),
+            gender: $("input[name='gender']").val(),
+            maratialStatus: $("input[name='maratialStatus']").val(),
+            nameOfSpouse: $("#txtNameOfSpouse").val(),
+            otherDetails: $("#txtOtherDetails").val()
+        }
+        if(employeeId){
+            employeeList.splice(parseInt(employeeList),1,data)
+        } else {
+            employeeList.push(data);
+            console.log('employeeList: ', employeeList);
+            result = {
+                status: 'success',
+                data: {
+                    msg: 'Thank you!'
+                }
             }
         }
+        
+        $(".resetEmployee").click();
+        $(".showEmployeeTable").click();
     }
     return result;
 };
