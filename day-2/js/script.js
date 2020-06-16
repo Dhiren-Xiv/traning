@@ -38,7 +38,7 @@ var validateEmplyoee = () => {
         (!focusField) ? focusField = "txtLastName" : focusField;
     }
     // this is to check the spouse name errors.
-    let spouseNameErrors = validateSpouseName("");
+    let spouseNameErrors = validateSpouseName();
     if (spouseNameErrors) {
         errorMessages = [...errorMessages, spouseNameErrors];
         (!focusField) ? focusField = "txtNameOfSpouse" : focusField;
@@ -86,7 +86,6 @@ let validateName = (id) => {
             fieldErrors.push(`${fieldName} must have 10 or less charater`);
         }
     }
-    debugger;
     return (fieldErrors.length > 0) ? fieldErrors : false;
 };
 
