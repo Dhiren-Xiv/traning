@@ -1,3 +1,4 @@
+var employeeList = [];
 $(document).ready(function () {
     $(".saveEmployee").click((event) => {
         event.preventDefault();
